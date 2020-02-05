@@ -6,25 +6,10 @@ import java.util.stream.Collectors;
 
 public class Streams {
     public List<String> reverseProductsNames(List<Product> products) {
-        List<String> reverseProductsNames = products.stream().map(product -> {
-            char[] chars = product.getName().toCharArray();
-            char[] reverse = new char[chars.length];
-            int counter = 0;
-            for (int i = chars.length - 1; i > -1; i--) {
-
-                reverse[counter] = chars[i];
-                counter++;
-            }
-            StringBuilder stringBuilder = new StringBuilder();
-            for (char ch : reverse
-            ) {
-                stringBuilder.append(ch);
-            }
-            return stringBuilder.toString();
-        })
+        List<String> reverseProductsNames = products.stream()
+                .map(product -> new StringBuffer(product.getName()).reverse().toString())
                 .collect(Collectors.toList());
-
-        return reverseProductsNames;
+        return  reverseProductsNames;
     }
 
     public Optional<String> productsNamesToOneString(List<Product> products) {
@@ -54,11 +39,9 @@ public class Streams {
         return idToProduct;
     }
 
-    public Map<Product, Integer> createMapProductToAmount(List<Product> products) {
-
-        Map<Product, Integer> productToCount = products.stream()
-                .distinct()
-                .collect(Collectors.toMap(product -> product, product -> 1));
+    public Map<Product, Long> createMapProductToAmount(List<Product> products) {
+        Map<Product,Long> productToCount= products.stream()
+                .collect(Collectors.groupingBy(product -> product, Collectors.counting()));
         return productToCount;
     }
 

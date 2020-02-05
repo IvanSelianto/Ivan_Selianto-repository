@@ -14,17 +14,17 @@ public class Product {
 
     public static List<Product> createProductsList() {
         return Arrays.asList(
-                Product.newBuilder().setId(30).setName("Lenovo").setPrice(2000).build(),
-                Product.newBuilder().setId(12).setName("A4Tech").setPrice(20).build(),
-                Product.newBuilder().setId(57).setName("HP").setPrice(1000).build(),
-                Product.newBuilder().setId(44).setName("Sony").setPrice(300).build(),
-                Product.newBuilder().setId(98).setName("Senheiser").setPrice(600).build(),
-                Product.newBuilder().setId(132).setName("Marshall").setPrice(1500).build(),
-                Product.newBuilder().setId(8).setName("Les Paul").setPrice(3000).build(),
-                Product.newBuilder().setId(307).setName("Fender").setPrice(2500).build(),
-                Product.newBuilder().setId(16).setName("Washburn").setPrice(700).build(),
-                Product.newBuilder().setId(2).setName("Samsung").setPrice(200).build(),
-                Product.newBuilder().setId(45).setName("Lenovo").setPrice(1).build()
+                Product.builder().setId(30).setName("Lenovo").setPrice(2000).build(),
+                Product.builder().setId(12).setName("A4Tech").setPrice(20).build(),
+                Product.builder().setId(57).setName("HP").setPrice(1000).build(),
+                Product.builder().setId(44).setName("Sony").setPrice(300).build(),
+                Product.builder().setId(98).setName("Senheiser").setPrice(600).build(),
+                Product.builder().setId(132).setName("Marshall").setPrice(1500).build(),
+                Product.builder().setId(8).setName("Les Paul").setPrice(3000).build(),
+                Product.builder().setId(307).setName("Fender").setPrice(2500).build(),
+                Product.builder().setId(16).setName("Washburn").setPrice(700).build(),
+                Product.builder().setId(2).setName("Samsung").setPrice(200).build(),
+                Product.builder().setId(45).setName("Lenovo").setPrice(1).build()
         );
 
     }
@@ -53,7 +53,8 @@ public class Product {
         return id;
     }
 
-    public static ProductBuilder newBuilder() {
+
+    public static ProductBuilder builder() {
         return new Product().new ProductBuilder();
     }
 
