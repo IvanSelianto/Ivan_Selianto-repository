@@ -3,7 +3,7 @@ public class Main {
         Recursion recursion = new Recursion();
         System.out.println(recursion.printAllNumberToCurrentNumber(100));
         System.out.println(recursion.sum(12573));
-        System.out.println( Recursion.checkPalindrome("шаrпаш"));
+        System.out.println( Recursion.checkPalindrome("шаККККпККККаш"));
 
 
 
