@@ -3,6 +3,7 @@ import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.*;
+import java.util.Random;
 
 public class Writer {
 
@@ -18,10 +19,9 @@ public class Writer {
 
 
     public void writeToFileNewRandomCredits(String fileName, int amount) {
-        Bank bank = new Bank();
+        RandomCreditGenerator randomCreditGenerator = new RandomCreditGenerator();
         try (
-                //   FileWriter fileWriter = new FileWriter(filename, true);
-                //     BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+
                 OutputStream out = new FileOutputStream(new File(fileName), true)
         ) {
             ObjectMapper objectMapper = new ObjectMapper();
@@ -29,9 +29,8 @@ public class Writer {
             generator.writeRaw('[');
 
             for (int i = 0; i < amount; i++) {
-                generator.writeObject(bank.creditGenerator());
+                generator.writeObject(randomCreditGenerator.creditGenerator());
                 generator.writeRaw(',');
-                //     objectMapper.writeValue(generator, bank.creditGenerator());
 
 
             }

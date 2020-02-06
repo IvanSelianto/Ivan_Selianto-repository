@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="223fcf09-1f7d-4d5f-8056-553edaf21f09" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../../Unknown projects/untitled/.idea/description.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Unknown projects/untitled/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Unknown projects/untitled/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Unknown projects/untitled/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Unknown projects/untitled/.idea/project-template.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Unknown projects/untitled/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Unknown projects/untitled/out/production/untitled/com/company/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Unknown projects/untitled/src/com/company/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Unknown projects/untitled/untitled.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Unknown projects/untitled1/.idea/description.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Unknown projects/untitled1/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Unknown projects/untitled1/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Unknown projects/untitled1/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Unknown projects/untitled1/.idea/project-template.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Unknown projects/untitled1/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Unknown projects/untitled1/out/production/untitled1/com/company/VoronCac.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Unknown projects/untitled1/src/com/company/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Unknown projects/untitled1/src/com/company/VoronCac.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Unknown projects/untitled1/untitled1.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Unknown projects/untitled2/.idea/description.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Unknown projects/untitled2/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Unknown projects/untitled2/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Unknown projects/untitled2/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Unknown projects/untitled2/.idea/project-template.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Unknown projects/untitled2/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Unknown projects/untitled2/src/com/company/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Unknown projects/untitled2/untitled2.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Unknown projects/untitled3/.idea/description.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Unknown projects/untitled3/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Unknown projects/untitled3/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Unknown projects/untitled3/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Unknown projects/untitled3/.idea/project-template.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Unknown projects/untitled3/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Unknown projects/untitled3/src/com/company/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Unknown projects/untitled3/untitled3.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Unknown projects/untitled4/.idea/description.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Unknown projects/untitled4/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Unknown projects/untitled4/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Unknown projects/untitled4/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Unknown projects/untitled4/.idea/project-template.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Unknown projects/untitled4/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Unknown projects/untitled4/Artifact.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Unknown projects/untitled4/out/production/untitled4/META-INF/untitled4.kotlin_module" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Unknown projects/untitled4/src/com/company/Artifact.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Unknown projects/untitled5/.idea/description.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Unknown projects/untitled5/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Unknown projects/untitled5/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Unknown projects/untitled5/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Unknown projects/untitled5/.idea/project-template.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Unknown projects/untitled5/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Unknown projects/untitled5/out/production/untitled5/META-INF/untitled5.kotlin_module" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Unknown projects/untitled5/out/production/untitled5/com/company/Cat.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Unknown projects/untitled5/src/com/company/Cat.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Unknown projects/untitled5/untitled5.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Unknown projects/untitled6/.idea/description.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Unknown projects/untitled6/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Unknown projects/untitled6/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Unknown projects/untitled6/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Unknown projects/untitled6/.idea/project-template.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Unknown projects/untitled6/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Unknown projects/untitled6/out/production/untitled6/com/company/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Unknown projects/untitled6/src/com/company/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Unknown projects/untitled6/untitled6.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../homework 1/.idea/description.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../homework 1/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../homework 1/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../homework 1/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../homework 1/.idea/project-template.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../homework 1/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../homework 1/homework 1.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../homework 1/out/production/homework 1/com/company/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../homework5v20/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../homework5v20/.idea/homework5v20.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../homework5v20/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../homework5v20/homework5v20.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../homework5v20/src/main/java/Paycheck.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../homework9v2/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../homework9v2/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../homework9v2/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../homework9v2/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../homework9v2/homework9.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../money/money.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../praticeTasks_lesson4/src/com/company/CitiesBelarus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../praticeTasks_lesson4/src/com/company/DaysOfWeek.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../seabattle-master/seabattle.iml" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="490" />
+    <option name="y" value="-15" />
+    <option name="width" value="1400" />
+    <option name="height" value="1000" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="223fcf09-1f7d-4d5f-8056-553edaf21f09" name="Default Changelist" comment="" />
+      <created>1581016441575</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1581016441575</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <layout>
+      <window_info id="Favorites" side_tool="true" />
+      <window_info id="Image Layers" />
+      <window_info id="Designer" />
+      <window_info id="UI Designer" />
+      <window_info id="Capture Tool" />
+      <window_info id="Learn" weight="0.3295302" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24966443" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Palette" />
+      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="right" id="Palette&#9;" />
+      <window_info anchor="right" id="Maven" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+</project>

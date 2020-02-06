@@ -40,75 +40,7 @@ public class Bank {
         this.filteredCredits = filteredCredits;
     }
 
-    public Credit creditGenerator() {
-        Credit credit = new Credit();
-        int target = RANDOM.nextInt(6 - 1) + 1;
-
-        switch (target) {
-            case 1:
-                credit.setTarget("Любая");
-                break;
-            case 2:
-                credit.setTarget("На лечение");
-                break;
-            case 3:
-                credit.setTarget("На образование");
-                break;
-            case 4:
-                credit.setTarget("На отдых");
-                break;
-            case 5:
-                credit.setTarget("На покупку товара");
-                break;
-        }
-
-        int typeOfCollateral = RANDOM.nextInt((5 - 1)) + 1;
-        switch (typeOfCollateral) {
-            case 1:
-                credit.setTypeOfCollateral("Любой");
-                break;
-            case 2:
-                credit.setTypeOfCollateral("Гарантийный депозит");
-                break;
-            case 3:
-                credit.setTypeOfCollateral("Залог");
-                break;
-            case 4:
-                credit.setTypeOfCollateral("Поручительство");
-                break;
-        }
-
-        int bankCreditor = RANDOM.nextInt(6 - 1) + 1;
-        switch (bankCreditor) {
-            case 1:
-                credit.setBankCreditor("Любой");
-                break;
-            case 2:
-                credit.setBankCreditor("ВТБ");
-                break;
-            case 3:
-                credit.setBankCreditor("БеларусБанк");
-                break;
-            case 4:
-                credit.setBankCreditor("Москва-Минск банк");
-                break;
-            case 5:
-                credit.setBankCreditor("Тиньков банк");
-                break;
-        }
-
-        int sum = RANDOM.nextInt(100001 - 10000) + 10000;
-        credit.setSum(Math.floor(sum / 10000) * 10000);
-
-        int term = RANDOM.nextInt(20 - 1) + 1;
-        credit.setTerm(6 * term);
-
-
-        return credit;
-    }
-
     public List<Credit> findCredit(Credit creditClient) {
-
         if (creditClient.getTarget() == null) {
             creditClient.setTarget("Любая");
         }
@@ -121,86 +53,10 @@ public class Bank {
 
         JSONReader jsonReader = new JSONReader("Credits.json");
         credits = jsonReader.read();
+        Filter filter = new Filter(filteredCredits, creditClient, credits);
 
+        this.filteredCredits = filter.fullFilter();
 
-        for (int i = 0; i < credits.size() - 1; i++) {
-            if (credits.get(i).getSum() == creditClient.getSum()
-                    && credits.get(i).getTerm() == creditClient.getTerm()
-                    && credits.get(i).getTarget().equals(creditClient.getTarget())
-                    && credits.get(i).getTypeOfCollateral().equals(creditClient.getTypeOfCollateral())
-                    && credits.get(i).getBankCreditor().equals(creditClient.getBankCreditor())
-            ) {
-                filteredCredits.add(credits.get(i));
-            }
-
-            if (creditClient.getTarget().equals("Любая")) {
-               if (credits.get(i).getSum() == creditClient.getSum()
-                       && credits.get(i).getTerm() == creditClient.getTerm()
-                       && credits.get(i).getTypeOfCollateral().equals(creditClient.getTypeOfCollateral())
-                       && credits.get(i).getBankCreditor().equals(creditClient.getBankCreditor())) {
-                    filteredCredits.add(credits.get(i));
-                }
-          }
-            if (creditClient.getTypeOfCollateral().equals("Любой")) {
-                if (credits.get(i).getSum() == creditClient.getSum()
-                        && credits.get(i).getTerm() == creditClient.getTerm()
-                        && credits.get(i).getTarget().equals(creditClient.getTarget())
-                        && credits.get(i).getBankCreditor().equals(creditClient.getBankCreditor())) {
-                    filteredCredits.add(credits.get(i));
-                }
-            }
-            if (creditClient.getBankCreditor().equals("Любой")) {
-                if (credits.get(i).getSum() == creditClient.getSum()
-                        && credits.get(i).getTerm() == creditClient.getTerm()
-                        && credits.get(i).getTarget().equals(creditClient.getTarget())
-                        && credits.get(i).getTypeOfCollateral().equals(creditClient.getTypeOfCollateral())
-
-                ) {
-                    filteredCredits.add(credits.get(i));
-                }
-            }
-
-//            if (creditClient.getTypeOfCollateral().equals("Любая")) {
-//                if (credits.get(i).getSum() == creditClient.getSum()
-//                        && credits.get(i).getTerm() == creditClient.getTerm()
-//                        || credits.get(i).getTerm() + 6 == creditClient.getTerm()
-//                        || credits.get(i).getTerm() - 6 == creditClient.getTerm()
-//                        && credits.get(i).getTarget().equals(creditClient.getTarget())
-//                        || credits.get(i).getTarget().equals("Любая")
-//                        && credits.get(i).getBankCreditor().equals(creditClient.getBankCreditor())
-//                        || credits.get(i).getBankCreditor().equals("Любой")) {
-//                    filteredCredits.add(credits.get(i));
-//                }
-//
-//            }
-//            if (creditClient.getBankCreditor().equals("Любая")) {
-//                if (credits.get(i).getSum() == creditClient.getSum()
-//                        && credits.get(i).getTerm() == creditClient.getTerm()
-//                        || credits.get(i).getTerm() + 6 == creditClient.getTerm()
-//                        || credits.get(i).getTerm() - 6 == creditClient.getTerm()
-//                        && credits.get(i).getTypeOfCollateral().equals(creditClient.getTypeOfCollateral())
-//                        || credits.get(i).getTypeOfCollateral().equals("Любой")
-//                        && credits.get(i).getTarget().equals(creditClient.getTarget())
-//                        || credits.get(i).getTarget().equals("Любая")) {
-//                    filteredCredits.add(credits.get(i));
-//                }
-//
-//            }
-//
-//            if (credits.get(i).getSum() == creditClient.getSum()
-//                    && credits.get(i).getTerm() == creditClient.getTerm()
-//                    || credits.get(i).getTerm() + 6 == creditClient.getTerm()
-//                    || credits.get(i).getTerm() - 6 == creditClient.getTerm()
-//                    && credits.get(i).getTarget().equals(creditClient.getTarget())
-//                    || credits.get(i).getTarget().equals("Любая")
-//                    && credits.get(i).getTypeOfCollateral().equals(creditClient.getTypeOfCollateral())
-//                    || credits.get(i).getTypeOfCollateral().equals("Любой")
-//                    && credits.get(i).getBankCreditor().equals(creditClient.getBankCreditor())
-//                    || credits.get(i).getBankCreditor().equals("Любой")) {
-//                filteredCredits.add(credits.get(i));
-//            }
-
-        }
         filteredCreditsList = new ArrayList<>(filteredCredits);
 
         return filteredCreditsList;
@@ -208,6 +64,7 @@ public class Bank {
 
 
 }
+
 
 
 
