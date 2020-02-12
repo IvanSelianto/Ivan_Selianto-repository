@@ -8,4 +8,5 @@ public class CreditSumSetter implements CreditSetterCommand {
         creditClient.setSum(new Scanner(System.in).nextDouble());
 
     }
+
 }
