@@ -2,32 +2,35 @@
 
 
 import java.util.HashMap;
-import java.util.List;
+
 import java.util.Map;
-import java.util.stream.Collectors;
+
 
 public class Paycheck {
     private Map<String, Long> productsNameToAmount = new HashMap<>();
-    private int cost;
+    private int totalAmount;
 
-    public Paycheck getCheck(List<Long> ids, Shop shop) {
+    public Map<String, Long> getProductsNameToAmount() {
+        return productsNameToAmount;
+    }
 
-        productsNameToAmount = ids.stream()
-                .map(id -> shop.getIdsToProducts().get(id).getName())
-                .collect(Collectors.groupingBy(productName -> productName, Collectors.counting()));
-        cost = ids.stream()
-                .map(id -> shop.getIdsToProducts().get(id).getCost())
-                .mapToInt(subSum -> Integer.parseInt(subSum.toString())).sum();
+    public void setProductsNameToAmount(Map<String, Long> productsNameToAmount) {
+        this.productsNameToAmount = productsNameToAmount;
+    }
 
-        return Paycheck.this;
+    public int getTotalAmount() {
+        return totalAmount;
+    }
 
+    public void setTotalAmount(int totalAmount) {
+        this.totalAmount = totalAmount;
     }
 
     @Override
     public String toString() {
         return "Paycheck{" +
                 "productsNameToAmount=" + productsNameToAmount +
-                ", cost=" + cost +
+                ", totalAmount=" + totalAmount +
                 '}';
     }
 }

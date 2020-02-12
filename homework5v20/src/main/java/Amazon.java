@@ -4,7 +4,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class Amazon implements Shop {
-    private int counter;
+
     private Map<Product, Integer> productsToAmount = new HashMap<>();
     private Map<Long, Product> idsToProducts = new HashMap<>();
 
@@ -15,18 +15,22 @@ public class Amazon implements Shop {
 
     @Override
     public void addProduct(Product product) {
-        if (productsToAmount.containsKey(product)) {
-            counter++;
-        } else {
-            counter = 1;
+        if(product!=null) {
+            int counter = 1;
+            if (productsToAmount.containsKey(product)) {
+                counter++;
+            } else {
+                counter = 1;
+            }
+            productsToAmount.put(product, counter);
+            idsToProducts.put(product.getId(), product);
         }
-        productsToAmount.put(product, counter);
-        idsToProducts.put(product.getId(), product);
 
 
     }
 
     public Paycheck getCheck(List<Long> ids, Shop amazon) {
+        Paycheck paycheck = new Paycheck();
         Map<Long, Long> idProductToExpectedAmount = ids.stream().collect(Collectors.groupingBy(id -> id, Collectors.counting()));
         idProductToExpectedAmount.keySet().stream()
                 .forEach(id -> {
@@ -34,14 +38,20 @@ public class Amazon implements Shop {
                         ids.remove(id);
                     }
                 });
-
         ids.forEach(id -> {
-
             if (productsToAmount.containsKey(idsToProducts.get(id))) {
-                productsToAmount.remove(idsToProducts.get(id));
-            }
-        });
-        return new Paycheck().getCheck(ids, amazon);
+                productsToAmount.remove(idsToProducts.get(id)); }});
+
+
+        paycheck.setProductsNameToAmount(ids.stream()
+                .map(id -> amazon.getIdsToProducts().get(id).getName())
+                .collect(Collectors.groupingBy(productName -> productName, Collectors.counting())));
+        paycheck.setTotalAmount(ids.stream()
+                .map(id -> amazon.getIdsToProducts().get(id).getCost())
+                .mapToInt(subSum -> Integer.parseInt(subSum.toString())).sum());
+
+
+        return paycheck;
     }
 
     @Override

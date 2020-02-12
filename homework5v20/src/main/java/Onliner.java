@@ -3,11 +3,11 @@ import java.util.stream.Collectors;
 
 
 public class Onliner implements Shop {
-    private List<Product> products = new ArrayList();
+    private static List<Product> products = new ArrayList();
     private Map<Long, Product> idsToProducts = new HashMap<>();
     private Map<Product, Long> productsToAmount = new HashMap<>();
 
-    public List<Product> getProducts() {
+    public static List<Product> getProducts() {
         return products;
     }
 
@@ -15,16 +15,20 @@ public class Onliner implements Shop {
         return idsToProducts;
     }
 
+
+
     public void addProduct(Product product) {
-        products.add(product);
-        idsToProducts.put(product.getId(), product);
+        if(product!= null) {
+            products.add(product);
+            idsToProducts.put(product.getId(), product);
+        }
     }
 
     public Paycheck getCheck(List<Long> ids, Shop onliner) {
 
-
+        Paycheck paycheck = new Paycheck();
         Map<Long, Long> idProductToExpectedAmount = ids.stream().collect(Collectors.groupingBy(id -> id, Collectors.counting()));
-       idProductToExpectedAmount.keySet().stream()
+        idProductToExpectedAmount.keySet().stream()
                 .forEach(id -> {
                     if (idProductToExpectedAmount.get(id) > (getProductsToAmount().get(idsToProducts.get(id)))) {
                         ids.remove(id);
@@ -32,12 +36,19 @@ public class Onliner implements Shop {
                 });
 
         ids.forEach(id -> {
-                    if (products.contains(idsToProducts.get(id))) {
-                        products.remove(idsToProducts.get(id));
-                    }
-                });
+            if (products.contains(idsToProducts.get(id))) {
+                products.remove(idsToProducts.get(id));
+            }
+        });
+        paycheck.setProductsNameToAmount(ids.stream()
+                .map(id -> onliner.getIdsToProducts().get(id).getName())
+                .collect(Collectors.groupingBy(productName -> productName, Collectors.counting())));
+        paycheck.setTotalAmount(ids.stream()
+                .map(id -> onliner.getIdsToProducts().get(id).getCost())
+                .mapToInt(subSum -> Integer.parseInt(subSum.toString())).sum());
 
-        return new Paycheck().getCheck(ids, onliner);
+
+        return paycheck;
     }
 
     public Map<Product, Long> getProductsToAmount() {

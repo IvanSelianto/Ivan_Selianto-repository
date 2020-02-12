@@ -54,17 +54,22 @@ public class Product {
         }
 
         public ProductBuilder setName(String name) {
-            Product.this.name = name;
+            if(name!= null) {
+                Product.this.name = name;
+            }
             return this;
         }
 
         public ProductBuilder setCost(int cost) {
-            Product.this.cost = cost;
+                Product.this.cost = cost;
+
             return this;
         }
 
         public ProductBuilder setId(long id) {
-            Product.this.id = id;
+
+                Product.this.id = id;
+
             return this;
         }
 
