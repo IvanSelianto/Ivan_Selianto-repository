@@ -1,31 +1,26 @@
 import org.telegram.telegrambots.api.methods.send.SendMessage;
-import org.telegram.telegrambots.api.objects.Message;
-import pw.spn.crawler.rutracker.http.RutrackerHttpService;
+
+import org.telegram.telegrambots.api.objects.Update;
+
 
 public class SearchCommand implements Command {
-   /* Bot bot = new Bot();
     @Override
-    public void perform() {
-        RuTracker ruTracker = bot.getRuTracker();
-        RutrackerHttpService rutrackerHttpService = Bot.getRutrackerHttpService();
-
-        ruTracker.setSearchResult(rutrackerHttpService.search(bot.getUpdate().getMessage().getText(), ruTracker.getTopicsArray()));
+    public void perform(Update update, RuTracker ruTracker) {
+        ruTracker.setSearchResult(Bot.getRutrackerHttpService().search(update.getMessage().getText(), ruTracker.getTopicsArray()));
         try {
-            bot.setRutrackerLinks(ruTracker.createRutrackerLinks());
-           bot.execute(new SendMessage()
-                    .setChatId(bot.getUpdate().getMessage().getChatId())
+
+            Bot.getBot().setRutrackerLinks(ruTracker.createRutrackerLinks());
+           Bot.getBot().execute(new SendMessage()
+                    .setChatId(update.getMessage().getChatId())
                     .setText("Результаты поиска:")
-                    .setReplyMarkup(bot.sendInlineKeyBoardMessage(0, 5)));
+                    .setReplyMarkup(Bot.getBot().sendInlineKeyBoardMessage(0, 5)));
         } catch (Exception e) {
             e.printStackTrace();
-           bot.sendMsg(bot.getUpdate().getMessage(), "Прости, по твоему запросу ничего не найдено.\n\nПопробуй переформулировать.");
+           Bot.getBot().sendMsg(update.getMessage(), "Прости, по твоему запросу ничего не найдено.\n\nПопробуй переформулировать.");
         }
-    }*/
-
-
-
-    @Override
-    public void perform(Message message, RuTracker ruTracker) {
 
     }
+
+
+
 }

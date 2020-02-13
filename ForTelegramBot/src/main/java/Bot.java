@@ -2,7 +2,7 @@ import org.telegram.telegrambots.ApiContextInitializer;
 import org.telegram.telegrambots.TelegramBotsApi;
 import org.telegram.telegrambots.api.methods.send.SendDocument;
 import org.telegram.telegrambots.api.methods.send.SendMessage;
-import org.telegram.telegrambots.api.methods.updatingmessages.EditMessageReplyMarkup;
+
 import org.telegram.telegrambots.api.objects.Message;
 import org.telegram.telegrambots.api.objects.Update;
 import org.telegram.telegrambots.api.objects.replykeyboard.InlineKeyboardMarkup;
@@ -14,6 +14,7 @@ import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.exceptions.TelegramApiException;
 import pw.spn.crawler.rutracker.http.RutrackerHttpService;
 import pw.spn.crawler.rutracker.model.RutrackerLink;
+
 import java.io.*;
 import java.util.*;
 
@@ -28,7 +29,34 @@ public class Bot extends TelegramLongPollingBot {
     private RuTracker ruTracker = new RuTracker();
     private List<RutrackerLink> rutrackerLinks = new ArrayList();
     private int linkNumber;
+    private static Bot instance;
 
+    public static RutrackerHttpService getRutrackerHttpService() {
+        return rutrackerHttpService;
+    }
+
+    public static Bot getBot() {
+        if (instance == null) {
+            instance = new Bot();
+        }
+        return instance;
+    }
+
+    public void setLinkNumber(int linkNumber) {
+        this.linkNumber = linkNumber;
+    }
+
+    public int getLinkNumber() {
+        return linkNumber;
+    }
+
+    public List<RutrackerLink> getRutrackerLinks() {
+        return rutrackerLinks;
+    }
+
+    public void setRutrackerLinks(List<RutrackerLink> rutrackerLinks) {
+        this.rutrackerLinks = rutrackerLinks;
+    }
 
     public static void main(String[] args) {
         rutrackerHttpService.login("pashka-one", "3210310");
@@ -36,12 +64,16 @@ public class Bot extends TelegramLongPollingBot {
         ApiContextInitializer.init();
         TelegramBotsApi botapi = new TelegramBotsApi();
         try {
-            botapi.registerBot(new Bot());
+            botapi.registerBot(Bot.getBot());
         } catch (TelegramApiException e) {
             e.printStackTrace();
 
         }
 
+
+    }
+
+    private Bot() {
 
     }
 
@@ -51,7 +83,6 @@ public class Bot extends TelegramLongPollingBot {
 
         InlineKeyboardMarkup inlineKeyboardMarkup = new InlineKeyboardMarkup();
         List<List<InlineKeyboardButton>> rowList = new ArrayList();
-
         if (linkNumber >= rutrackerLinks.size()) {
             linkNumber = 0;
             bound = 5;
@@ -61,7 +92,6 @@ public class Bot extends TelegramLongPollingBot {
             linkNumber = bound - 5;
 
         }
-
         if (linkNumber < 0) {
             bound = rutrackerLinks.size();
             linkNumber = bound - bound % 5;
@@ -73,17 +103,17 @@ public class Bot extends TelegramLongPollingBot {
         }
 
 
-        for (; linkNumber < bound; linkNumber++) {
+        while (linkNumber < bound) {
             rowList.add(Arrays.asList(new InlineKeyboardButton()
                     .setText("\u2139" + rutrackerLinks.get(linkNumber).getTitle())
                     .setCallbackData("Full information:")));
             rowList.add(Arrays.asList(new InlineKeyboardButton().setText(
                     "\u2B07 Размер: " + ruTracker.sizeConversion(rutrackerLinks.get(linkNumber).getSizeInBytes()) +
                             " | Сиды: " + rutrackerLinks.get(linkNumber).getSeeds() +
-                            " | Личи: " + rutrackerLinks.get(linkNumber).getLeechs()).setCallbackData(Integer.toString(linkNumber))));
+                            " | Личи: " + rutrackerLinks.get(linkNumber).getLeechs()).setCallbackData(linkNumber + "linkNumber")));
+            linkNumber++;
         }
         rowList.add(Arrays.asList(
-
                 new InlineKeyboardButton().setText("<-").setCallbackData("Предыдущая страница"),
                 new InlineKeyboardButton().setText(bound + "/" + rutrackerLinks.size()).setCallbackData("dd"),
                 new InlineKeyboardButton().setText("->").setCallbackData("Следующая страница")));
@@ -139,65 +169,23 @@ public class Bot extends TelegramLongPollingBot {
                     || message.getText().equals("Фильмы")
                     || message.getText().equals("Книги")
                     || message.getText().equals("Музыка")) {
-                CommandsEnum.findCommandsEnum(message.getText()).perform(message, ruTracker);
+                CommandsEnum.findCommandsEnum(message.getText()).perform(update, ruTracker);
             } else {
-                ruTracker.setSearchResult(rutrackerHttpService.search(message.getText(), ruTracker.getTopicsArray()));
-                try {
-                    rutrackerLinks = ruTracker.createRutrackerLinks();
-                    execute(new SendMessage()
-                            .setChatId(message.getChatId())
-                            .setText("Результаты поиска:")
-                            .setReplyMarkup(sendInlineKeyBoardMessage(0, 5)));
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    sendMsg(message, "Прости, по твоему запросу ничего не найдено.\n\nПопробуй переформулировать.");
-                }
+                CommandsEnum.findCommandsEnum("/search").perform(update, ruTracker);
 
             }
         } else if (update.hasCallbackQuery()) {
-            try {
-                if (update.getCallbackQuery().getData().equals("Следующая страница")) {
-                    execute(new EditMessageReplyMarkup()
-                            .setMessageId(update.getCallbackQuery().getMessage().getMessageId())
-                            .setChatId(update.getCallbackQuery().getMessage().getChatId())
-                            .setReplyMarkup(sendInlineKeyBoardMessage(linkNumber + 5, linkNumber + 10)));
-
-                }
-                if (update.getCallbackQuery().getData().equals("Предыдущая страница")) {
-                    execute(new EditMessageReplyMarkup()
-                            .setMessageId(update.getCallbackQuery().getMessage().getMessageId())
-                            .setChatId(update.getCallbackQuery().getMessage().getChatId())
-                            .setReplyMarkup(sendInlineKeyBoardMessage(linkNumber - 5, linkNumber)));
-
-                }
-
-                if (update.getCallbackQuery().getData().equals("Full information:")) {
-                    execute(new SendMessage().setText(
-                            update.getCallbackQuery().getData()).setChatId(update.getCallbackQuery().getMessage().getChatId()));
-                    execute(new SendMessage().setText("Название: "
-                            + rutrackerLinks.get(linkNumber).getTitle()
-                            + "\nТема: "
-                            + rutrackerLinks.get(linkNumber).getTopic().getName()
-                            + "\nРазмер: "
-                            + ruTracker.sizeConversion(rutrackerLinks.get(linkNumber).getSizeInBytes())
-                            + "\nЛичи: "
-                            + rutrackerLinks.get(linkNumber).getLeechs()
-                            + "\nСиды: "
-                            + rutrackerLinks.get(linkNumber).getSeeds()
-                            + "\nСсылка на источник: "
-                            + rutrackerLinks.get(linkNumber).getDownloadUrl()).setChatId(update.getCallbackQuery().getMessage().getChatId()));
-                }
-
-                if (update.getCallbackQuery().getData().equals(Integer.toString(linkNumber))) {
-                    sendTorrentFile(Integer.parseInt(update.getCallbackQuery().getData()), update.getCallbackQuery().getMessage());
-                }
-            } catch (TelegramApiException e) {
-                e.printStackTrace();
+            if (update.getCallbackQuery().getData().equals("Предыдущая страница")
+                    || update.getCallbackQuery().getData().equals("Следующая страница")
+                    || update.getCallbackQuery().getData().equals("Full information:")) {
+                CommandsEnum.findCommandsEnum(update.getCallbackQuery().getData()).perform(update, ruTracker);
+            } else {
+                CommandsEnum.findCommandsEnum(update.getCallbackQuery().getData().split("\\d")[1]).perform(update, ruTracker);
             }
         }
     }
 
-    private Message sendTorrentFile(int fileNumber, Message message) {
+    public Message sendTorrentFile(int fileNumber, Message message) {
         byte[] bytes = rutrackerHttpService.downloadFile(rutrackerLinks.get(fileNumber).getDownloadUrl());
         SendDocument sendDocument = new SendDocument();
         sendDocument.setChatId(message.getChatId().toString());

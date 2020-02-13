@@ -1,11 +1,13 @@
 import org.telegram.telegrambots.api.objects.Message;
+import org.telegram.telegrambots.api.objects.Update;
 
 public class MusicCommand implements Command {
-    Bot bot = new Bot();
+
+
     @Override
-    public void perform(Message message, RuTracker ruTracker ){
+    public void perform(Update update, RuTracker ruTracker){
         ruTracker.setTopicsArray(ruTracker.getMusic());
-        bot.sendMsg(bot.getUpdate().getMessage(), "Введи поисковой запрос:");
+        Bot.getBot().sendMsg(Bot.getBot().getUpdate().getMessage(), "Введи поисковой запрос:");
 
     }
 }

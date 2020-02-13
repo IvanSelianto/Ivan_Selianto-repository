@@ -1,5 +1,6 @@
-import org.telegram.telegrambots.api.objects.Message;
+
+import org.telegram.telegrambots.api.objects.Update;
 
 public interface Command {
-    void perform(Message message , RuTracker ruTracker);
+    void perform(Update update, RuTracker ruTracker);
 }
