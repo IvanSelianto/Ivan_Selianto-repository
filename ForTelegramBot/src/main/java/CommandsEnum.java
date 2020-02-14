@@ -4,11 +4,8 @@ public enum CommandsEnum {
 
 
     START("/start", new StartCommand()),
-    FILMS("Фильмы", new FilmsCommand()),
-    BOOKS("Книги", new BooksCommand()),
-    MUSIC("Музыка", new MusicCommand()),
     SEARCH("/search", new SearchCommand()),
-    NEXT_PAGE("Следующая страница",new NextPageCommand()),
+    NEXT_PAGE("Следующая страница", new NextPageCommand()),
     PREVIOUS_PAGE("Предыдущая страница", new PreviousPageCommand()),
     FULL_INFO("Full information:", new FullInfoCommand()),
     SEND_TORRENT_FILE("linkNumber", new SendTorrentFileCommand());

@@ -8,7 +8,7 @@ import java.util.List;
 
 public class FullInfoCommand implements Command {
     @Override
-    public void perform(Update update, RuTracker ruTracker) {
+    public void perform(Update update, RuTrackerLinksCreator ruTrackerLinksCreator) {
         List<RutrackerLink> rutrackerLinks = Bot.getBot().getRutrackerLinks();
         int linkNumber = Bot.getBot().getLinkNumber();
         try {
@@ -19,7 +19,7 @@ public class FullInfoCommand implements Command {
                     + "\nТема: "
                     + rutrackerLinks.get(linkNumber).getTopic().getName()
                     + "\nРазмер: "
-                    + ruTracker.sizeConversion(rutrackerLinks.get(linkNumber).getSizeInBytes())
+                    + new UnitConversionFileSize().unitConversion(rutrackerLinks.get(linkNumber).getSizeInBytes())
                     + "\nЛичи: "
                     + rutrackerLinks.get(linkNumber).getLeechs()
                     + "\nСиды: "
